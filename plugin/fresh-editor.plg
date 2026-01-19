@@ -17,32 +17,22 @@
   support="https://forums.unraid.net/"
   min="6.12.0"
 >
-  <CHANGES>
+<CHANGES>
     <![CDATA[
 ### &version;
 - Install Fresh terminal editor (binary via AppImage extract)
     ]]>
-  </CHANGES>
+</CHANGES>
 
-  <!-- README.md shown in the Plugins UI as the description -->
-  <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
-    <INLINE>
-# Fresh Editor (Unraid plugin)
+<!-- README.md shown in the Plugins UI as the description -->
+<FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
+<INLINE>
+### Fresh Editor (Unraid plugin)
 
-Installs the `fresh` terminal editor on the Unraid host and makes it available at:
-
-- `/usr/local/bin/fresh`
-
-Usage:
-- Open Unraid Terminal (WebGUI) or SSH
-- Run: `fresh`
-
-Upgrades:
-- Plugins tab → Check for Updates / Update
-
-Source project: https://github.com/sinelaw/fresh
-    </INLINE>
-  </FILE>
+Installs the `fresh` terminal editor by sinelaw on the Unraid host at `/usr/local/bin/fresh`
+Usage: run `fresh`
+</INLINE>
+</FILE>
 
 <!-- INSTALL: download AppImage, extract, copy fresh into /usr/local/bin -->
 <FILE Run="/bin/bash" Method="install">
