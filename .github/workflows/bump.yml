@@ -21,7 +21,7 @@ jobs:
 
           PLG="plugin/fresh-editor.plg"
 
-          # Current version from your .plg (example assumes you use <!ENTITY version "0.1.77">)
+          # Current version from your .plg (expects <!ENTITY version "YYYY.MM.DD">)
           CUR_VER=$(grep -oP '<!ENTITY version "\K[^"]+' "$PLG" || true)
           if [ -z "$CUR_VER" ]; then
             echo "Couldn't parse current version from $PLG"
@@ -31,8 +31,19 @@ jobs:
           # Get latest upstream release JSON
           JSON=$(curl -fsSL https://api.github.com/repos/sinelaw/fresh/releases/latest)
 
-          TAG=$(echo "$JSON" | jq -r '.tag_name')          # e.g. v0.1.77
+          TAG=$(echo "$JSON" | jq -r '.tag_name')   # e.g. v0.1.76
           NEW_VER=${TAG#v}
+
+          # Use upstream release publish date for plugin version (stable & meaningful)
+          # published_at is ISO-8601 like 2025-12-19T10:50:12Z
+          PUBLISHED_AT=$(echo "$JSON" | jq -r '.published_at')
+          if [ -z "$PUBLISHED_AT" ] || [ "$PUBLISHED_AT" = "null" ]; then
+            echo "Could not read published_at from upstream release JSON"
+            exit 1
+          fi
+
+          # Convert to YYYY.MM.DD (UTC)
+          PLG_VER=$(date -u -d "$PUBLISHED_AT" +"%Y.%m.%d")
 
           # Find the x86_64 AppImage URL
           APPIMAGE_URL=$(echo "$JSON" | jq -r '.assets[].browser_download_url' \
@@ -43,21 +54,24 @@ jobs:
             exit 1
           fi
 
-          echo "Current: $CUR_VER"
-          echo "Latest : $NEW_VER"
-          echo "AppImg : $APPIMAGE_URL"
+          echo "Current PLG version: $CUR_VER"
+          echo "Upstream Fresh tag  : $NEW_VER"
+          echo "Upstream release date (plg): $PLG_VER"
+          echo "AppImg             : $APPIMAGE_URL"
 
-          if [ "$NEW_VER" = "$CUR_VER" ]; then
+          # Only update when upstream release date differs from our current plugin version.
+          # (Prevents needless bumps due to workflow reruns.)
+          if [ "$PLG_VER" = "$CUR_VER" ]; then
             echo "No update needed."
             exit 0
           fi
 
           # Update entities in .plg
-          sed -i 's#<!ENTITY version ".*"#<!ENTITY version "'"$NEW_VER"'"#' "$PLG"
+          sed -i 's#<!ENTITY version ".*"#<!ENTITY version "'"$PLG_VER"'"#' "$PLG"
           sed -i 's#<!ENTITY appImageURL ".*"#<!ENTITY appImageURL "'"$APPIMAGE_URL"'"#' "$PLG"
 
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add "$PLG"
-          git commit -m "Bump Fresh to $NEW_VER"
+          git commit -m "Bump Fresh to $NEW_VER ($PLG_VER)"
           git push
