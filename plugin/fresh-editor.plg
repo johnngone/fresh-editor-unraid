@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE PLUGIN [
+  <!ENTITY name    "fresh-editor">
+  <!ENTITY author  "johnngone">
+  <!ENTITY version "0.1.79">
+  <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngonei/unraid-fresh-editor/main/plugin/fresh-editor.plg">
+
+  <!-- Put a real, version-pinned AppImage URL here from the Fresh GitHub releases assets -->
+  <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/fresh-editor-0.1.79/fresh-editor-0.1.79-x86_64.AppImage">
+]>
+<PLUGIN
+  name="&name;"
+  author="&author;"
+  version="&version;"
+  pluginURL="&pluginURL;"
+  launch="settings"
+  support="https://forums.unraid.net/"
+  min="6.12.0"
+>
+  <CHANGES>
+    <![CDATA[
+### &version;
+- Install Fresh terminal editor (binary via AppImage extract)
+    ]]>
+  </CHANGES>
+
+  <!-- README.md shown in the Plugins UI as the description -->
+  <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
+    <INLINE>
+# Fresh Editor (Unraid plugin)
+
+Installs the `fresh` terminal editor on the Unraid host and makes it available at:
+
+- `/usr/local/bin/fresh`
+
+Usage:
+- Open Unraid Terminal (WebGUI) or SSH
+- Run: `fresh`
+
+Upgrades:
+- Plugins tab → Check for Updates / Update
+
+Source project: https://github.com/sinelaw/fresh
+    </INLINE>
+  </FILE>
+
+<!-- INSTALL: download AppImage, extract, copy fresh into /usr/local/bin -->
+<FILE Run="/bin/bash" Method="install">
+<INLINE>
+#!/bin/bash
+set -euxo pipefail
+
+PLUGIN="&name;"
+VER="&version;"
+
+WORK="/tmp/${PLUGIN}"
+APP="${WORK}/fresh-editor.AppImage"
+
+mkdir -p "${WORK}"
+cd "${WORK}"
+
+echo "Downloading Fresh AppImage..."
+rm -f "${APP}"
+wget -qO "${APP}" "&appImageURL;"
+chmod +x "${APP}"
+
+echo "Extracting AppImage (no FUSE mount)..."
+rm -rf squashfs-root
+"${APP}" --appimage-extract >/dev/null
+
+echo "Installing fresh binary..."
+install -m 0755 squashfs-root/usr/bin/fresh /usr/local/bin/fresh
+
+echo "Done. Try: fresh"
+</INLINE>
+</FILE>
+
+<!-- REMOVE: delete binary and plugin folder -->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+#!/bin/bash
+set -euxo pipefail
+
+rm -f /usr/local/bin/fresh
+rm -rf /usr/local/emhttp/plugins/&name;
+
+echo "Removed Fresh."
+</INLINE>
+</FILE>
+</PLUGIN>
