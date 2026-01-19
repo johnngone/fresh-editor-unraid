@@ -15,7 +15,7 @@
   pluginURL="&pluginURL;"
   launch="settings"
   support="https://forums.unraid.net/"
-  min="6.12.0"
+  min="7.2.3"
 >
 <CHANGES>
     <![CDATA[
@@ -27,7 +27,7 @@
 <!-- README.md shown in the Plugins UI as the description -->
 <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
 <INLINE>
-***Fresh Editor***
+**Fresh Editor**
 
 Installs the `fresh` terminal editor by sinelaw.
 </INLINE>
