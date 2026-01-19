@@ -27,10 +27,9 @@
 <!-- README.md shown in the Plugins UI as the description -->
 <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
 <INLINE>
-### Fresh Editor (Unraid plugin)
+***Fresh Editor***
 
-Installs the `fresh` terminal editor by sinelaw on the Unraid host at `/usr/local/bin/fresh`
-Usage: run `fresh`
+Installs the `fresh` terminal editor by sinelaw.
 </INLINE>
 </FILE>
 
