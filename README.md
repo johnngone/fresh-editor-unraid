@@ -3,6 +3,7 @@
 <img width="128" height="128" alt="Fresh editor icon." src="https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png" />
 
 An Unraid plugin that installs **Fresh**, a modern terminal text editor you can “just use”. Fresh is designed to feel immediately familiar while still offering powerful IDE-like features out-the-box.
+
 <img width="512" alt="Fresh editor screenshot." src="https://getfresh.dev/docs/assets/hero.png" />
 
 ## What is Fresh?
