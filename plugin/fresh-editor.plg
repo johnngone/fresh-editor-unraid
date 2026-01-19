@@ -6,7 +6,7 @@
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngonei/unraid-fresh-editor/main/plugin/fresh-editor.plg">
 
   <!-- Put a real, version-pinned AppImage URL here from the Fresh GitHub releases assets -->
-  <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/fresh-editor-0.1.79/fresh-editor-0.1.79-x86_64.AppImage">
+  <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.77/fresh-editor-0.1.77-x86_64.AppImage">
 ]>
 <PLUGIN
   name="&name;"
