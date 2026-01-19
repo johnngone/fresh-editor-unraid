@@ -2,7 +2,7 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name    "fresh-editor">
   <!ENTITY author  "johnngone">
-  <!ENTITY version "2026.01.13">
+  <!ENTITY version "2026.01.14">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.77/fresh-editor-0.1.77-x86_64.AppImage">
 ]>
@@ -19,6 +19,14 @@
   - Install Fresh terminal editor (binary via AppImage extract)
   ]]>
   </CHANGES>
+
+  <FILE Name="/boot/config/plugins/&name;/fresh-editor.png">
+    <URL>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png</URL>
+  </FILE>
+  
+  <FILE Name="/usr/local/emhttp/plugins/&name;/fresh-editor.png">
+    <LOCAL>/boot/config/plugins/&name;/fresh-editor.png</LOCAL>
+  </FILE>
 
   <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
     <INLINE>
