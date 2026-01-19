@@ -3,9 +3,7 @@
   <!ENTITY name    "fresh-editor">
   <!ENTITY author  "johnngone">
   <!ENTITY version "2025.10.10">
-  <!ENTITY pluginURL "<!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
-
-  <!-- Put a real, version-pinned AppImage URL here from the Fresh GitHub releases assets -->
+  <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.76/fresh-editor-0.1.76-x86_64.AppImage">
 ]>
 <PLUGIN
@@ -16,25 +14,23 @@
   support="https://forums.unraid.net/"
   min="6.12.0"
 >
-<CHANGES>
+  <CHANGES>
     <![CDATA[
 ### &version;
 - Install Fresh terminal editor (binary via AppImage extract)
     ]]>
-</CHANGES>
+  </CHANGES>
 
-<!-- README.md shown in the Plugins UI as the description -->
-<FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
-<INLINE>
+  <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
+    <INLINE>
 **Fresh Editor**
 
 Installs the `fresh` terminal editor by sinelaw.
-</INLINE>
-</FILE>
+    </INLINE>
+  </FILE>
 
-<!-- INSTALL: download AppImage, extract, copy fresh into /usr/local/bin -->
-<FILE Run="/bin/bash" Method="install">
-<INLINE>
+  <FILE Run="/bin/bash" Method="install">
+    <INLINE>
 #!/bin/bash
 set -euxo pipefail
 
@@ -60,12 +56,11 @@ echo "Installing fresh binary..."
 install -m 0755 squashfs-root/usr/bin/fresh /usr/local/bin/fresh
 
 echo "Done. Try: fresh"
-</INLINE>
-</FILE>
+    </INLINE>
+  </FILE>
 
-<!-- REMOVE: delete binary and plugin folder -->
-<FILE Run="/bin/bash" Method="remove">
-<INLINE>
+  <FILE Run="/bin/bash" Method="remove">
+    <INLINE>
 #!/bin/bash
 set -euxo pipefail
 
@@ -73,6 +68,6 @@ rm -f /usr/local/bin/fresh
 rm -rf /usr/local/emhttp/plugins/&name;
 
 echo "Removed Fresh."
-</INLINE>
-</FILE>
+    </INLINE>
+  </FILE>
 </PLUGIN>
