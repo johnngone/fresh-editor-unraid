@@ -15,10 +15,9 @@
   min="6.12.0"
 >
   <CHANGES>
-    <![CDATA[
-### &version;
-- Install Fresh terminal editor (binary via AppImage extract)
-    ]]>
+  <![CDATA[
+  - Install Fresh terminal editor (binary via AppImage extract)
+  ]]>
   </CHANGES>
 
   <FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
