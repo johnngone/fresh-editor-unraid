@@ -16,7 +16,7 @@
 >
   <CHANGES>
   <![CDATA[
-  - Install Fresh terminal editor (binary via AppImage extract)
+  - Install Fresh terminal editor (binary via AppImage extract) from official releases. Check release notes: https://github.com/sinelaw/fresh/releases
   ]]>
   </CHANGES>
 
