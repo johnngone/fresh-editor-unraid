@@ -3,7 +3,7 @@
   <!ENTITY name    "fresh-editor">
   <!ENTITY author  "johnngone">
   <!ENTITY version "2025.10.10">
-  <!ENTITY pluginURL "https://github.com/johnngone/fresh-editor-unraid/raw/refs/heads/main/plugin/fresh-editor.plg">
+  <!ENTITY pluginURL "<!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
 
   <!-- Put a real, version-pinned AppImage URL here from the Fresh GitHub releases assets -->
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.76/fresh-editor-0.1.76-x86_64.AppImage">
