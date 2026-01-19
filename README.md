@@ -32,7 +32,8 @@ fresh
 
 ## What This Plugin Does
 
-- Downloads the official **Fresh AppImage**
+- Workflows checks for Fresh releases daily
+- If new version, downloads the Fresh AppImage
 - Extracts the `fresh` binary (no FUSE required)
 - Installs it to: `/usr/local/bin/fresh`
 - Makes `fresh` available from:
