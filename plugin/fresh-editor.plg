@@ -6,6 +6,20 @@
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.77/fresh-editor-0.1.77-x86_64.AppImage">
 ]>
+<Containers>
+  <PluginURL>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg</PluginURL>
+  <PluginAuthor>johnngone</PluginAuthor>
+  <Beta>False</Beta>
+  <Category>Other: Tools: Tools:System</Category>
+  <Date>2026-01-19</Date>
+  <Name>Fresh: A TUI Editor</Name>
+  <Description>
+  An Unraid plugin that installs Fresh, a modern terminal text editor that "just works”. Fresh is designed to feel immediately familiar while still offering powerful IDE-like features out-the-box.
+  </Description>
+  <Support>https://forums.unraid.net</Support>
+  <Icon>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png</Icon>
+  <IconFA>refresh</IconFA>
+</Containers>
 <PLUGIN
   name="&name;"
   author="&author;"
