@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" standalone="yes"?>
 <!DOCTYPE PLUGIN [
   <!ENTITY name    "fresh-editor">
   <!ENTITY author  "johnngone">
   <!ENTITY version "2026.01.15">
+  <!ENTITY gitURL    "https://github.com/johnngone/fresh-editor-unraid">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.77/fresh-editor-0.1.77-x86_64.AppImage">
 ]>
@@ -11,7 +12,7 @@
   author="&author;"
   version="&version;"
   pluginURL="&pluginURL;"
-  support="https://forums.unraid.net/"
+  support="https://forums.unraid.net/topic/196640-plugin-fresh-a-terminal-text-editor/"
   min="6.12.0"
 >
   <CHANGES>
