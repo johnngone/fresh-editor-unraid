@@ -2,10 +2,10 @@
 <!DOCTYPE PLUGIN [
   <!ENTITY name    "fresh-editor">
   <!ENTITY author  "johnngone">
-  <!ENTITY version "2026.02.01">
+  <!ENTITY version "2026.02.04">
   <!ENTITY gitURL    "https://github.com/johnngone/fresh-editor-unraid">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
-  <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.98/fresh-editor-0.1.98-x86_64.AppImage">
+  <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.1.99/fresh-editor-0.1.99-x86_64.AppImage">
 ]>
 <PLUGIN
   name="&name;"
