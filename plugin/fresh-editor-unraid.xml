@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+<PluginURL>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg</PluginURL>
+<PluginAuthor>Forder</PluginAuthor>
+<Beta>False</Beta>
+<Category>Other: Productivity: Tools:</Category>
+<Name>Fresh Editor</Name>
+<Project>https://getfresh.dev/</Project>
+<Description>Fresh is a modern, full-featured terminal text editor with familiar keybindings, mouse support, and IDE-level features.</Description>
+<Support>https://forums.unraid.net/topic/196640-plugin-fresh-a-terminal-text-editor/</Support>
+<Icon>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png</Icon>
+<Screenshot>https://raw.githubusercontent.com/sinelaw/fresh/master/docs/fresh-demo2.gif</Screenshot>
+</Containers>
