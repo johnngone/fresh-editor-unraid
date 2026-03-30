@@ -7,7 +7,7 @@ An Unraid plugin that installs **Fresh**, a modern, full-featured terminal text 
 Upstream project: https://github.com/sinelaw/fresh/
 Website: https://getfresh.dev/
 
-<img width="512" alt="Fresh editor screenshot." src="https://getfresh.dev/docs/assets/hero.png" />
+<img width="512" alt="Fresh editor screenshot." src="https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/docs/fresh-demo2.gif" />
 
 ## Installation
 
