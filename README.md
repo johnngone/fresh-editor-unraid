@@ -11,10 +11,10 @@ Website: https://getfresh.dev/
 
 ## Installation
 
-### Via Community Applications (not available yet)
-Search for **Fresh Editor** in the Unraid Community Apps store and install like any other plugin.
+### Via Community Applications (recommended)
+Search for **Fresh Editor** in the Unraid > Apps and click install.
 
-### Manual Install
+### Via Manual Install
 From the Unraid Web UI:
 
 **Plugins → Install Plugin**, then paste:
