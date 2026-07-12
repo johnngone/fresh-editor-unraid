@@ -2,7 +2,7 @@ name: Bump Fresh version in Unraid .plg
 
 on:
   schedule:
-    - cron: "17 04 * * *"
+    - cron: "17 04 * * 2"
   workflow_dispatch: {}
 
 permissions:
