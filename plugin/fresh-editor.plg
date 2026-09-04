@@ -5,7 +5,10 @@
   <!ENTITY version "2026.08.20">
   <!ENTITY gitURL    "https://github.com/johnngone/fresh-editor-unraid">
   <!ENTITY pluginURL "https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.plg">
+  <!ENTITY appImageFile "fresh-editor-0.4.10-x86_64.AppImage">
   <!ENTITY appImageURL "https://github.com/sinelaw/fresh/releases/download/v0.4.10/fresh-editor-0.4.10-x86_64.AppImage">
+  <!ENTITY appImageSHA256 "57fbff813d835a996a37c1b6bfd96a9d73e14e5274625caff72c37ae7bbcdada">
+  <!ENTITY iconSHA256 "352919652e12d270ee365ff691b0f95816b39823ce98609fa69a2242e0fa94e5">
 ]>
 <PLUGIN
   name="&name;"
@@ -23,6 +26,7 @@
 
   <FILE Name="/boot/config/plugins/&name;/fresh-editor.png">
     <URL>https://raw.githubusercontent.com/johnngone/fresh-editor-unraid/main/plugin/fresh-editor.png</URL>
+    <SHA256>&iconSHA256;</SHA256>
   </FILE>
   
   <FILE Name="/usr/local/emhttp/plugins/&name;/fresh-editor.png">
@@ -37,6 +41,14 @@ Installs the `fresh` terminal editor by sinelaw.
     </INLINE>
   </FILE>
 
+  <!-- The AppImage is downloaded and verified by the plugin system before the
+       install script below runs. If it does not match &appImageSHA256; the
+       install stops here and the script never executes it. -->
+  <FILE Name="/boot/config/plugins/&name;/&appImageFile;">
+    <URL>&appImageURL;</URL>
+    <SHA256>&appImageSHA256;</SHA256>
+  </FILE>
+
   <FILE Run="/bin/bash" Method="install">
     <INLINE>
 #!/bin/bash
@@ -46,14 +58,15 @@ PLUGIN="&name;"
 VER="&version;"
 
 WORK="/tmp/${PLUGIN}"
+SRC="/boot/config/plugins/${PLUGIN}/&appImageFile;"
 APP="${WORK}/fresh-editor.AppImage"
 
 mkdir -p "${WORK}"
 cd "${WORK}"
 
-echo "Downloading Fresh AppImage..."
+echo "Using verified Fresh AppImage..."
 rm -f "${APP}"
-wget -qO "${APP}" "&appImageURL;"
+cp "${SRC}" "${APP}"
 chmod +x "${APP}"
 
 echo "Extracting AppImage (no FUSE mount)..."
