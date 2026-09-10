@@ -32,9 +32,9 @@ fresh
 
 ## What This Plugin Does
 
-- Workflows checks for Fresh releases daily
+- Workflows checks for Fresh releases weekly
 - If new version, downloads the Fresh AppImage
-- Extracts the `fresh` binary (avoids FUSE overhead)
+- Extracts the `fresh` binary (to avoid FUSE overhead)
 - Installs it to: `/usr/local/bin/fresh`
 - Makes `fresh` available from:
   - Unraid Web Terminal
